@@ -19,7 +19,7 @@ string Forest::NextLocation()
 	int botGeneration = 1 + rand() % 7;
 	if (botGeneration == 7)
 	{
-		message = "You met the giant spider\n #1. Take the fight in the forest";
+		message = "You met the giant spider\n #1. Take the fight in the forest #2. Try to run away";
 	}
 	else
 	{

@@ -1,0 +1,11 @@
+﻿  ChatServer.cpp
+C:\Users\Дмитрий\source\repos\Death_Match\ChatServer\ChatServer\ChatServer.cpp(46,40): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Дмитрий\source\repos\Death_Match\ChatServer\ChatServer\ChatServer.cpp(184,95): warning C4312: приведение типов: преобразование из "int" в "LPVOID" большего размера
+  Forest.cpp
+C:\Users\Дмитрий\source\repos\Death_Match\ChatServer\ChatServer\Forest.cpp(11,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  NetworksComnuliti.cpp
+C:\Users\Дмитрий\source\repos\Death_Match\ChatServer\ChatServer\NetworksComnuliti.cpp(20,34): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  Players.cpp
+C:\Users\Дмитрий\source\repos\Death_Match\ChatServer\ChatServer\Players.cpp(112,58): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  Создание кода...
+  ChatServer.vcxproj -> C:\Users\Дмитрий\source\repos\Death_Match\ChatServer\x64\Debug\ChatServer.exe

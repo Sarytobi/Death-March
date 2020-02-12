@@ -107,6 +107,10 @@ void ClientHandler(int index) {
 				//Start the fight
 				arr[herues].location = "square";
 			}
+			else if (message == "2. Try to run away")
+			{
+				arr[herues].location = "square";
+			}
 		}
 		else if (arr[herues].location == "market")
 		{
