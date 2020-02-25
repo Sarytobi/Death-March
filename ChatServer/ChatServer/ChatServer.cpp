@@ -5,8 +5,10 @@
 #include "Players.h"
 #include "NetworksComnuliti.h"
 #include "Forest.h"
+#include "PvP.h"
 #pragma warning(disable: 4996)
 
+PvP ControllerPVP;
 Players arr[100];
 int playersCounter = 0;
 SOCKET Connections[100];
@@ -32,30 +34,27 @@ void ClientHandler(int index) {
 		msg[messageSize] = '\0';
 		recv(Connections[index], msg, messageSize, NULL);
 		std::cout << "Received: Client = " << index << " Message = " << msg << std::endl;
-		// передача данных
 		message = messageControllerText.Decoder(msg);
-		//!arr[playersCounter].GetName().string::empty()
+		
 		if (herues == playersCounter)
 		{
 			string msgString;
 			std::cout << "Создание персонажа" << std::endl;
-			arr[playersCounter] = Players(messageControllerText.NewPlayers(msg, messageSize));
+			string namePlayer = messageControllerText.NewPlayers(msg, messageSize);
+			arr[playersCounter] = Players(namePlayer, Connections[herues]);
 			delete[] msg;
-			msgString = arr[herues].InfoPlayerString();
-			//msgtest = arr[herues].InfoPlayerString().c_str();
+			//msgString = arr[herues].InfoPlayerString();
 			int sizeHeruesMsg = msgString.size();
 			cout << sizeHeruesMsg << endl;
 			char* msgtest = new char[sizeHeruesMsg+1];
 			msgtest[messageSize] = '\0';
 			strcpy(msgtest, msgString.c_str());
-
 			std::cout << msgtest << std::endl;
-
 			send(Connections[herues], (char*)&sizeHeruesMsg, sizeof(int), NULL);
 			send(Connections[herues], msgtest, sizeHeruesMsg, NULL);
-			//нужно передать стринг
 			arr[herues].InfoPlayer();
 			playersCounter++;
+			std::cout << arr[herues].idCrient << std::endl;
 			delete[] msgtest;
 		}
 
@@ -70,6 +69,7 @@ void ClientHandler(int index) {
 			else if (message == "2. Go to the arena")
 			{
 				arr[herues].location = "arena";
+				ControllerPVP.SelectionPlayers(arr[herues]);
 			}
 			else if (message == "3. Go to the market")
 			{
@@ -83,6 +83,27 @@ void ClientHandler(int index) {
 				messageControllerText.Send(message, Connections[herues]);
 			}
 		}
+		else if (arr[herues].location == "arena")
+		{
+			if (message == "1. Back")
+			{
+				ControllerPVP.DeletePlayerTurnBack(arr[herues]);
+				arr[herues].location = "square";
+			}
+			else if (message == "2. Continues")
+			{
+				ControllerPVP.SelectionPlayers(arr[herues]);
+			}
+			else if (message == "1.Go to combat")
+			{
+				ControllerPVP.FindPlayersToPvP();
+			}
+		}
+		else if (arr[herues].location == "pvp")
+		{
+			ControllerPVP.Send("%Combar room", arr[herues].idCrient);
+		}
+
 		else if (arr[herues].location == "dressroom")
 		{
 			arr[herues].location = "square";
@@ -170,6 +191,9 @@ int main(int argc, char* argv[]) {
 	listen(sListen, SOMAXCONN);
 
 	SOCKET newConnection;
+	//
+	//ControllerPVP.arr[100] = &(arr)[100];
+	//
 	while (true)
 	{
 		newConnection = accept(sListen, (SOCKADDR*)&addr, &sizeofaddr);

@@ -1,0 +1,6 @@
+﻿  ChatClient.cpp
+C:\Users\Администратор\Documents\проекты\Death-March-master\ChatClient\ChatClient\ChatClient.cpp(56,28): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Администратор\Documents\проекты\Death-March-master\ChatClient\ChatClient\ChatClient.cpp(72,29): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Администратор\Documents\проекты\Death-March-master\ChatClient\ChatClient\ChatClient.cpp(98,35): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Администратор\Documents\проекты\Death-March-master\ChatClient\ChatClient\ChatClient.cpp(117,37): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  ChatClient.vcxproj -> C:\Users\Администратор\Documents\проекты\Death-March-master\ChatClient\x64\Debug\ChatClient.exe

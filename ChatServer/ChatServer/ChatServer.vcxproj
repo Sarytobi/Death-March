@@ -151,11 +151,13 @@
     <ClCompile Include="Forest.cpp" />
     <ClCompile Include="NetworksComnuliti.cpp" />
     <ClCompile Include="Players.cpp" />
+    <ClCompile Include="PvP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Forest.h" />
     <ClInclude Include="NetworksComnuliti.h" />
     <ClInclude Include="Players.h" />
+    <ClInclude Include="PvP.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -16,8 +16,12 @@ string upperMessage;
 void ClientHandler();
 
 string menu(string upperMessage, string* answers, int answerCounter);
+void Preview();
 
 int main(int argc, char* argv[]) {
+
+	Preview();
+
 	//WSAStartup
 	WSAData wsaData;
 	WORD DLLVersion = MAKEWORD(2, 1);
@@ -38,6 +42,8 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 	std::cout << "Connected!\n";
+	system("pause");
+	system("cls");
 
 	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)ClientHandler, NULL, NULL, NULL);
 
@@ -117,12 +123,54 @@ void ClientHandler() {
 			}
 			flagMenu = true; //switching to menu input model
 		}
+		else if (message.find('%') != string::npos)
+		{
+			message = message.substr(1, message.length());
+			cout << message;
+			Sleep(1000);
+			continue;
+		}
 		else
 		{
 			std::cout << message << endl;
 			std::cout << "Press Enter to continue";
 		}
 		delete[] msg;
+	}
+}
+
+void Preview()
+{
+	string preview[20];
+	preview[0] = "                                                      ";
+	preview[1] = "   ***        ********      **      ********   **   **";
+	preview[2] = "   ** **      ********     ****     ********   **   **";
+	preview[3] = "   **  **     **          **  **       **      **   **";
+	preview[4] = "   **   **    ********    **  **       **      *******";
+	preview[5] = "   **    **   ********    ******       **      *******";
+	preview[6] = "   **   **    **         ********      **      **   **";
+	preview[7] = "   **  **     **         **    **      **      **   **";
+	preview[8] = "   ** **      ********   **    **      **      **   **";
+	preview[9] = "   **         ********   **    **      **      **   **";
+	preview[10] = "                                                      ";
+	preview[11] = "                                                      ";
+	preview[12] = "   **    **      **      ********      **      **   **";
+	preview[13] = "   ***  ***     ****     ********     ****     **   **";
+	preview[14] = "   ***  ***    **  **       **       **  **    **   **";
+	preview[15] = "   ** ** **    **  **       **      **         *******";
+	preview[16] = "   ** ** **    ******       **      **         *******";
+	preview[17] = "   **    **   ********      **       **  **    **   **";
+	preview[18] = "   **    **   **    **      **        ****     **   **";
+	preview[19] = "   **    **   **    **      **         **      **   **";
+
+	for (int i = 0; i < 20; i++)
+	{
+		Sleep(100);
+		system("cls");
+		for (int j = 19 - i; j < 20; j++)
+		{
+			cout << preview[j] << endl;
+		}
 	}
 }
 

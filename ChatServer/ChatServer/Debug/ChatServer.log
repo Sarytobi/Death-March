@@ -1,2 +1,10 @@
 ﻿  ChatServer.cpp
-  ChatServer.vcxproj -> C:\Users\Дмитрий\Downloads\ChatServer\Debug\ChatServer.exe
+  Forest.cpp
+C:\Users\Администратор\Documents\проекты\Death-March-master\ChatServer\ChatServer\Forest.cpp(11,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  NetworksComnuliti.cpp
+  Players.cpp
+C:\Users\Администратор\Documents\проекты\Death-March-master\ChatServer\ChatServer\Players.cpp(113,58): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  PvP.cpp
+  Создание кода...
+PvP.obj : error LNK2005: "class Players * arr" (?arr@@3PAVPlayers@@A) уже определен в ChatServer.obj
+C:\Users\Администратор\Documents\проекты\Death-March-master\ChatServer\Debug\ChatServer.exe : fatal error LNK1169: обнаружен многократно определенный символ - один или более
